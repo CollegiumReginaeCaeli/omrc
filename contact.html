@@ -56,32 +56,41 @@
       <p class="section-label">Send a Message</p>
       <h2>Write to Us</h2>
 
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" placeholder="Full name"/>
+      <form id="omrc-contact-form">
+        <input type="hidden" name="access_key" value="45da7180-fb4e-4f67-9385-a2620540f780"/>
+        <input type="hidden" name="subject" value="New message from OMRC contact form"/>
+        <input type="hidden" name="from_name" value="OMRC Website"/>
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off"/>
 
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" placeholder="your@email.com"/>
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Full name" required/>
 
-      <label for="subject">Subject</label>
-      <input type="text" id="subject" name="subject" placeholder="How can we help?"/>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required/>
 
-      <label for="inquiry">Nature of Inquiry</label>
-      <select id="inquiry" name="inquiry">
-        <option value="">Select one...</option>
-        <option>Membership Inquiry</option>
-        <option>Healthcare Apostolate</option>
-        <option>Education Apostolate</option>
-        <option>Publishing / Collegium Reginae Caeli</option>
-        <option>Holy Collaboration</option>
-        <option>General Question</option>
-      </select>
+        <label for="subject_line">Subject</label>
+        <input type="text" id="subject_line" name="Subject Line" placeholder="How can we help?"/>
 
-      <label for="message">Your Message</label>
-      <textarea id="message" name="message" placeholder="Write your message here..."></textarea>
+        <label for="inquiry">Nature of Inquiry</label>
+        <select id="inquiry" name="Nature of Inquiry">
+          <option value="">Select one...</option>
+          <option>Membership Inquiry</option>
+          <option>Healthcare Apostolate</option>
+          <option>Education Apostolate</option>
+          <option>Publishing / Collegium Reginae Caeli</option>
+          <option>Holy Collaboration</option>
+          <option>General Question</option>
+        </select>
 
-      <button type="button" class="btn" onclick="alert('Thank you for your message. We will be in touch soon.\n\nDeo gratias.')">
-        Send Message
-      </button>
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+
+        <p id="omrc-form-status" style="display:none; margin-top:0.75rem;"></p>
+
+        <button type="submit" class="btn">
+          Send Message
+        </button>
+      </form>
     </div>
   </div>
 </main>
@@ -100,6 +109,51 @@
     </ul>
   </div>
 </footer>
+
+<script>
+  const form = document.getElementById('omrc-contact-form');
+  const status = document.getElementById('omrc-form-status');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: json
+      });
+      const result = await response.json();
+
+      status.style.display = 'block';
+      if (result.success) {
+        status.style.color = 'green';
+        status.textContent = 'Thank you for your message. We will be in touch soon. Deo gratias.';
+        form.reset();
+      } else {
+        status.style.color = 'crimson';
+        status.textContent = 'Something went wrong. Please try again or email us directly.';
+      }
+    } catch (error) {
+      status.style.display = 'block';
+      status.style.color = 'crimson';
+      status.textContent = 'Something went wrong. Please try again or email us directly.';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    }
+  });
+</script>
 
 </body>
 </html>
