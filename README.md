@@ -1,1 +1,4 @@
-temp
+This is the temporary website of the Ordo Militantium Reginae Caeli (OMRC), Order of the Warriors of the Queen of Heaven.
+
+Who are we?
+The Ordo Militantium Reginae Caeli (OMRC) is a Catholic Militant Order dedicated to the defense and proclamation of the Traditional Faith, under the patronage of the Blessed Virgin Mary, Queen of Heaven, and the intercession of the Venerable Fulton J. Sheen. Founded in fidelity to the Pre‑Vatican II liturgical tradition, the Order wages its battle not in arms, but through charity, truth, and sacrifice, serving those in need through apostolates in healthcare, education, and the Faith. Through its publishing work under the Collegium Reginae Caeli, the OMRC produces sacred and catechetical materials to restore all things in Christ. Governed by its founding Custos Generalis, the Order leads its members according to its motto "Sub tuum Praesidium" ("Under Thy Protection"), in humble service to Holy Mother Church, to Our Lady her Queen, and to the salvation of souls entrusted to her maternal care.
