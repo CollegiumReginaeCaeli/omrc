@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apply for Membership &mdash; OMRC</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><img src="logo.png" alt="OMRC"/> OMRC</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="constitution.html">Constitution</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="apply.html" class="active">Apply</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <h1>Apply for Membership</h1>
+  <p>Ordo Militantium Reginae Caeli</p>
+</header>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="apply-grid">
+
+      <!-- Requirements -->
+      <div class="apply-requirements">
+        <span class="section-label">Before You Apply</span>
+        <h2>Membership Requirements</h2>
+        <p>The Ordo Militantium Reginae Caeli is a Catholic Militant Order dedicated to the defense and proclamation of the Traditional Faith. Membership is a serious commitment — a calling to serve Our Lady, Holy Mother Church, and those most in need, through prayer, sacrifice, and apostolic work.</p>
+
+        <p style="margin-top:1.5rem; color:var(--white); font-family:'Cinzel',serif; font-size:0.9rem;">All applicants must:</p>
+        <ul class="requirements-list">
+          <li>Be a <strong style="color:var(--white)">practicing Catholic</strong> in good standing with Holy Mother Church.</li>
+          <li>Be at least <strong style="color:var(--white)">18 years of age</strong> at the time of application.</li>
+          <li>Hold a sincere devotion to the <strong style="color:var(--white)">Blessed Virgin Mary</strong> and a commitment to Traditional Catholic piety.</li>
+          <li>Be willing to abide by the Rule of Life and spirit of the Order as directed by the Custos Generalis.</li>
+          <li>Commit to the Order's apostolates in <strong style="color:var(--white)">healthcare, education, and the Faith</strong> according to their ability and vocation.</li>
+        </ul>
+
+        <div class="ornament" style="text-align:left; margin:2rem 0 1.5rem; letter-spacing:0.4em;">✦ ✦ ✦</div>
+
+        <blockquote>
+          "<em>Sub tuum praesidium confugimus, Sancta Dei Genetrix.</em>"<br/>
+          Under thy protection we take refuge, O Holy Mother of God.
+          <cite>&mdash; Motto of the Order</cite>
+        </blockquote>
+
+        <p style="margin-top:1.5rem; color:var(--text-muted); font-size:0.92rem;">Applications are reviewed by the Custos Generalis. You will be contacted following the review of your submission. All information provided is treated with the utmost discretion.</p>
+      </div>
+
+      <!-- Form -->
+      <div>
+        <span class="section-label">Your Application</span>
+        <h2>Apply Now</h2>
+
+        <div class="form-notice">
+          By submitting this application you affirm that the information provided is true and that you meet the requirements of the Order. Submitting an application does not guarantee membership.
+        </div>
+
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" placeholder="Your first name"/>
+        </div>
+
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" placeholder="Your last name"/>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="your@email.com"/>
+        </div>
+
+        <div class="form-group">
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob"/>
+        </div>
+
+        <div class="form-group">
+          <label for="country">Country of Residence</label>
+          <input type="text" id="country" placeholder="Country"/>
+        </div>
+
+        <div class="form-group">
+          <label for="diocese">Diocese</label>
+          <input type="text" id="diocese" placeholder="Your diocese or parish"/>
+        </div>
+
+        <div class="form-group">
+          <label for="apostolate">Area of Apostolate Interest</label>
+          <select id="apostolate">
+            <option value="">Select one...</option>
+            <option>Healthcare</option>
+            <option>Education</option>
+            <option>Faith &amp; Publishing</option>
+            <option>All Three Apostolates</option>
+            <option>Not Yet Sure</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="motivation">Why do you wish to join the Order?</label>
+          <textarea id="motivation" placeholder="Tell us about your devotion to Our Lady, your faith, and why you feel called to join the OMRC..."></textarea>
+        </div>
+
+        <label style="font-family:'Cinzel',serif; font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); display:block; margin-bottom:1rem;">Please confirm the following:</label>
+
+        <label class="checkbox-group">
+          <input type="checkbox" id="check-catholic"/>
+          <span>I am a <strong style="color:var(--white)">practicing Catholic</strong> in good standing with Holy Mother Church.</span>
+        </label>
+
+        <label class="checkbox-group">
+          <input type="checkbox" id="check-age"/>
+          <span>I am at least <strong style="color:var(--white)">18 years of age</strong>.</span>
+        </label>
+
+        <label class="checkbox-group">
+          <input type="checkbox" id="check-truth"/>
+          <span>The information I have provided in this application is true and accurate to the best of my knowledge.</span>
+        </label>
+
+        <div style="margin-top:2rem;">
+          <button type="button" class="btn btn-gold" onclick="submitApplication()">Submit Application</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <img src="logo.png" alt="OMRC" class="footer-logo"/>
+    <span class="footer-name">Ordo Militantium Reginae Caeli &mdash; OMRC</span>
+    <p>Collegium Reginae Caeli &bull; <em>Sub tuum Praesidium</em></p>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li><li><span class="footer-divider">&bull;</span></li>
+      <li><a href="about.html">About</a></li><li><span class="footer-divider">&bull;</span></li>
+      <li><a href="constitution.html">Constitution</a></li><li><span class="footer-divider">&bull;</span></li>
+      <li><a href="shop.html">Shop</a></li><li><span class="footer-divider">&bull;</span></li>
+      <li><a href="apply.html">Apply</a></li><li><span class="footer-divider">&bull;</span></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+function submitApplication() {
+  const catholic = document.getElementById('check-catholic').checked;
+  const age = document.getElementById('check-age').checked;
+  const truth = document.getElementById('check-truth').checked;
+  const fname = document.getElementById('fname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const dob = document.getElementById('dob').value;
+
+  if (!fname || !email) {
+    alert('Please fill in your name and email address before submitting.');
+    return;
+  }
+  if (dob) {
+    const birthDate = new Date(dob);
+    const today = new Date();
+    const age18 = new Date(birthDate.getFullYear() + 18, birthDate.getMonth(), birthDate.getDate());
+    if (today < age18) {
+      alert('We regret that applicants must be at least 18 years of age to join the Order.');
+      return;
+    }
+  }
+  if (!catholic) {
+    alert('Membership in the Ordo Militantium Reginae Caeli is open to practicing Catholics only. Please confirm your faith before submitting.');
+    return;
+  }
+  if (!age) {
+    alert('Please confirm that you are at least 18 years of age.');
+    return;
+  }
+  if (!truth) {
+    alert('Please confirm that your information is accurate before submitting.');
+    return;
+  }
+
+  alert('Ad Majorem Dei Gloriam.\n\nThank you, ' + fname + '. Your application has been received and will be reviewed by the Custos Generalis. You will be contacted at the email address provided.\n\nSub tuum Praesidium.\n\n— Ordo Militantium Reginae Caeli');
+}
+</script>
+
+</body>
+</html>
