@@ -507,9 +507,8 @@ blockquote cite {
   margin: 1.5rem 0;
 }
 .requirements-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.8rem;
+  position: relative;
+  padding-left: 1.7rem;
   margin-bottom: 1rem;
   font-size: 0.95rem;
   color: var(--text-muted);
@@ -517,10 +516,11 @@ blockquote cite {
 }
 .requirements-list li::before {
   content: '✦';
+  position: absolute;
+  left: 0;
+  top: 0.42em;
   color: var(--gold);
   font-size: 0.7rem;
-  flex-shrink: 0;
-  margin-top: 0.35rem;
 }
 .form-group { margin-bottom: 1.5rem; }
 .form-group label {
