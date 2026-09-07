@@ -290,6 +290,20 @@ p { margin-bottom: 1.2rem; color: var(--text); }
   margin: 0.1em 0.12em 0 0;
 }
 
+/* ── Symbol glyphs ──────────────────────── */
+/* Keep dingbats/crosses as monochrome text so `color` applies and the
+   browser does not substitute a colour emoji face. */
+.ornament,
+.pillar-icon,
+.patron-icon,
+.cat-icon,
+.coming-soon-icon,
+.requirements-list li::before {
+  font-family: 'Segoe UI Symbol', 'Apple Symbols', 'Noto Sans Symbols 2', sans-serif;
+  font-variant-emoji: text;
+  line-height: 1;
+}
+
 /* ── Ornament ────────────────────────────────────────── */
 .ornament {
   text-align: center;
@@ -570,6 +584,23 @@ blockquote cite {
   font-style: italic;
 }
 
+/* ── Form status ─────────────────────────────────────── */
+.form-status {
+  display: none;
+  margin-top: 1.4rem;
+  padding: 0.95rem 1.3rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--gold);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text);
+}
+.form-status.is-visible { display: block; }
+.form-status.is-error { border-left-color: #B3452F; color: #E09A8B; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; box-shadow: none; }
+.honeypot { display: none !important; }
+
 /* ── Contact grid ────────────────────────────────────── */
 .contact-grid {
   display: grid;
@@ -580,6 +611,90 @@ blockquote cite {
 @media (max-width: 700px) { .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
 .contact-info h3 { margin-top: 0; }
 .contact-info p { color: var(--text-muted); font-size: 0.95rem; }
+
+/* ── Leadership / ranks ────────────────── */
+.tier { margin-bottom: 3.8rem; }
+.tier:last-child { margin-bottom: 0; }
+.tier-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1.1rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.9rem;
+  margin-bottom: 1.8rem;
+}
+.tier-numeral {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--gold-dim);
+  line-height: 1;
+  flex-shrink: 0;
+}
+.tier-head h3 { margin: 0; font-size: 0.98rem; }
+.tier-latin {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-left: auto;
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .tier-head { flex-wrap: wrap; }
+  .tier-latin { margin-left: 0; width: 100%; }
+}
+.rank-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.3rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--blue-dim);
+  padding: 1.4rem 1.7rem;
+  margin-bottom: 1rem;
+  transition: border-left-color 0.2s, border-color 0.2s, transform 0.2s;
+}
+.rank-num {
+  font-family: 'Cinzel', serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--gold-dim);
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+  min-width: 1.5rem;
+  padding-top: 0.15rem;
+}
+.rank-body { flex: 1; min-width: 0; }
+.rank-card:last-child { margin-bottom: 0; }
+.rank-card:hover {
+  border-color: var(--border-bright);
+  border-left-color: var(--gold);
+  transform: translateX(4px);
+}
+.rank-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.08em;
+  display: block;
+}
+.rank-latin {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 1.02rem;
+  color: var(--gold);
+  display: block;
+  margin-top: 0.2rem;
+}
+.rank-card p {
+  font-size: 0.93rem;
+  color: var(--text-muted);
+  margin: 0.8rem 0 0;
+  line-height: 1.7;
+}
 
 /* ── Footer ──────────────────────────────────────────── */
 footer {
