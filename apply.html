@@ -66,73 +66,84 @@
           By submitting this application you affirm that the information provided is true and that you meet the requirements of the Order. Submitting an application does not guarantee membership.
         </div>
 
-        <div class="form-group">
-          <label for="fname">First Name</label>
-          <input type="text" id="fname" placeholder="Your first name"/>
-        </div>
+        <form id="apply-form" novalidate>
+          <input type="hidden" name="access_key" value="45da7180-fb4e-4f67-9385-a2620540f780"/>
+          <input type="hidden" name="subject" value="New membership application &mdash; OMRC"/>
+          <input type="hidden" name="from_name" value="OMRC Website"/>
+          <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off"/>
 
-        <div class="form-group">
-          <label for="lname">Last Name</label>
-          <input type="text" id="lname" placeholder="Your last name"/>
-        </div>
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="First Name" placeholder="Your first name" required/>
+          </div>
 
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" placeholder="your@email.com"/>
-        </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="Last Name" placeholder="Your last name"/>
+          </div>
 
-        <div class="form-group">
-          <label for="dob">Date of Birth</label>
-          <input type="date" id="dob"/>
-        </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required/>
+          </div>
 
-        <div class="form-group">
-          <label for="country">Country of Residence</label>
-          <input type="text" id="country" placeholder="Country"/>
-        </div>
+          <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="Date of Birth"/>
+          </div>
 
-        <div class="form-group">
-          <label for="diocese">Diocese</label>
-          <input type="text" id="diocese" placeholder="Your diocese or parish"/>
-        </div>
+          <div class="form-group">
+            <label for="country">Country of Residence</label>
+            <input type="text" id="country" name="Country of Residence" placeholder="Country"/>
+          </div>
 
-        <div class="form-group">
-          <label for="apostolate">Area of Apostolate Interest</label>
-          <select id="apostolate">
-            <option value="">Select one...</option>
-            <option>Healthcare</option>
-            <option>Education</option>
-            <option>Faith &amp; Publishing</option>
-            <option>All Three Apostolates</option>
-            <option>Not Yet Sure</option>
-          </select>
-        </div>
+          <div class="form-group">
+            <label for="diocese">Diocese</label>
+            <input type="text" id="diocese" name="Diocese" placeholder="Your diocese or parish"/>
+          </div>
 
-        <div class="form-group">
-          <label for="motivation">Why do you wish to join the Order?</label>
-          <textarea id="motivation" placeholder="Tell us about your devotion to Our Lady, your faith, and why you feel called to join the OMRC..."></textarea>
-        </div>
+          <div class="form-group">
+            <label for="apostolate">Area of Apostolate Interest</label>
+            <select id="apostolate" name="Area of Apostolate Interest">
+              <option value="">Select one...</option>
+              <option>Healthcare</option>
+              <option>Education</option>
+              <option>Faith &amp; Publishing</option>
+              <option>All Three Apostolates</option>
+              <option>Not Yet Sure</option>
+            </select>
+          </div>
 
-        <label style="font-family:'Cinzel',serif; font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); display:block; margin-bottom:1rem;">Please confirm the following:</label>
+          <div class="form-group">
+            <label for="motivation">Why do you wish to join the Order?</label>
+            <textarea id="motivation" name="Reason for Applying" placeholder="Tell us about your devotion to Our Lady, your faith, and why you feel called to join the OMRC..."></textarea>
+          </div>
 
-        <label class="checkbox-group">
-          <input type="checkbox" id="check-catholic"/>
-          <span>I am a <strong style="color:var(--white)">practicing Catholic</strong> in good standing with Holy Mother Church.</span>
-        </label>
+          <label style="font-family:'Cinzel',serif; font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); display:block; margin-bottom:1rem;">Please confirm the following:</label>
 
-        <label class="checkbox-group">
-          <input type="checkbox" id="check-age"/>
-          <span>I am at least <strong style="color:var(--white)">18 years of age</strong>.</span>
-        </label>
+          <label class="checkbox-group">
+            <input type="checkbox" id="check-catholic"/>
+            <span>I am a <strong style="color:var(--white)">practicing Catholic</strong> in good standing with Holy Mother Church.</span>
+          </label>
 
-        <label class="checkbox-group">
-          <input type="checkbox" id="check-truth"/>
-          <span>The information I have provided in this application is true and accurate to the best of my knowledge.</span>
-        </label>
+          <label class="checkbox-group">
+            <input type="checkbox" id="check-age"/>
+            <span>I am at least <strong style="color:var(--white)">18 years of age</strong>.</span>
+          </label>
 
-        <div style="margin-top:2rem;">
-          <button type="button" class="btn btn-gold" onclick="submitApplication()">Submit Application</button>
-        </div>
+          <label class="checkbox-group">
+            <input type="checkbox" id="check-truth"/>
+            <span>The information I have provided in this application is true and accurate to the best of my knowledge.</span>
+          </label>
+
+          <input type="hidden" name="Affirmations" id="affirmations"/>
+
+          <div style="margin-top:2rem;">
+            <button type="submit" class="btn btn-gold">Submit Application</button>
+          </div>
+
+          <p id="apply-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
 
     </div>
@@ -156,43 +167,87 @@
 </footer>
 
 <script>
-function submitApplication() {
-  const catholic = document.getElementById('check-catholic').checked;
-  const age = document.getElementById('check-age').checked;
-  const truth = document.getElementById('check-truth').checked;
-  const fname = document.getElementById('fname').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const dob = document.getElementById('dob').value;
+(function () {
+  var form = document.getElementById('apply-form');
+  var status = document.getElementById('apply-status');
+  var button = form.querySelector('button[type="submit"]');
 
-  if (!fname || !email) {
-    alert('Please fill in your name and email address before submitting.');
-    return;
+  function show(message, isError) {
+    status.textContent = message;
+    status.classList.add('is-visible');
+    status.classList.toggle('is-error', !!isError);
+    status.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
-  if (dob) {
-    const birthDate = new Date(dob);
-    const today = new Date();
-    const age18 = new Date(birthDate.getFullYear() + 18, birthDate.getMonth(), birthDate.getDate());
-    if (today < age18) {
-      alert('We regret that applicants must be at least 18 years of age to join the Order.');
+
+  form.addEventListener('submit', async function (event) {
+    event.preventDefault();
+
+    var catholic = document.getElementById('check-catholic').checked;
+    var age = document.getElementById('check-age').checked;
+    var truth = document.getElementById('check-truth').checked;
+    var fname = document.getElementById('fname').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var dob = document.getElementById('dob').value;
+
+    if (!fname || !email) {
+      show('Please fill in your name and email address before submitting.', true);
       return;
     }
-  }
-  if (!catholic) {
-    alert('Membership in the Ordo Militantium Reginae Caeli is open to practicing Catholics only. Please confirm your faith before submitting.');
-    return;
-  }
-  if (!age) {
-    alert('Please confirm that you are at least 18 years of age.');
-    return;
-  }
-  if (!truth) {
-    alert('Please confirm that your information is accurate before submitting.');
-    return;
-  }
+    if (dob) {
+      var birthDate = new Date(dob);
+      var today = new Date();
+      var age18 = new Date(birthDate.getFullYear() + 18, birthDate.getMonth(), birthDate.getDate());
+      if (today < age18) {
+        show('We regret that applicants must be at least 18 years of age to join the Order.', true);
+        return;
+      }
+    }
+    if (!catholic) {
+      show('Membership in the Ordo Militantium Reginae Caeli is open to practicing Catholics only. Please confirm your faith before submitting.', true);
+      return;
+    }
+    if (!age) {
+      show('Please confirm that you are at least 18 years of age.', true);
+      return;
+    }
+    if (!truth) {
+      show('Please confirm that your information is accurate before submitting.', true);
+      return;
+    }
 
-  alert('Ad Majorem Dei Gloriam.\n\nThank you, ' + fname + '. Your application has been received and will be reviewed by the Custos Generalis. You will be contacted at the email address provided.\n\nSub tuum Praesidium.\n\n— Ordo Militantium Reginae Caeli');
-}
+    document.getElementById('affirmations').value =
+      'Practicing Catholic: yes | 18 or older: yes | Information affirmed true: yes';
+
+    button.disabled = true;
+    button.textContent = 'Submitting...';
+    status.classList.remove('is-visible');
+
+    try {
+      var response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      });
+      var result = await response.json();
+
+      if (result.success) {
+        show('Ad Majorem Dei Gloriam. Thank you, ' + fname + '. Your application has been received and will be reviewed by the Custos Generalis. You will be contacted at the email address provided. Sub tuum Praesidium.', false);
+        form.reset();
+      } else {
+        show('Your application could not be submitted. Please try again, or contact us directly.', true);
+      }
+    } catch (error) {
+      show('Your application could not be submitted. Please check your connection and try again.', true);
+    }
+
+    button.disabled = false;
+    button.textContent = 'Submit Application';
+  });
+})();
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
