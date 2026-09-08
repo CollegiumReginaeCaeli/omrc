@@ -885,6 +885,151 @@ a.card-link:hover .card-more { color: var(--gold); }
 @media (max-width: 700px) { .territory-list { columns: 2; } }
 @media (max-width: 420px) { .territory-list { columns: 1; } }
 
+/* ── Officeholders ──────────────────── */
+a.rank-link { display: block; text-decoration: none; color: inherit; }
+a.rank-link .rank-card { cursor: pointer; }
+.rank-open {
+  display: block;
+  margin-top: 0.9rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.56rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  transition: color 0.2s;
+}
+a.rank-link:hover .rank-open { color: var(--gold); }
+
+.office-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.4rem;
+  margin-top: 2rem;
+}
+.officer-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.3rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--gold);
+  padding: 1.6rem 1.7rem;
+}
+.officer-card.is-vacant { border-left-color: var(--border-bright); }
+.officer-portrait {
+  width: 68px;
+  height: 68px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--border-bright);
+  background: var(--bg-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.05em;
+  color: var(--gold-dim);
+}
+.officer-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.officer-body { flex: 1; min-width: 0; }
+.officer-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.05em;
+  display: block;
+}
+.officer-office {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 0.98rem;
+  color: var(--gold);
+  display: block;
+  margin-top: 0.15rem;
+}
+.officer-since {
+  font-family: 'Cinzel', serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  display: block;
+  margin-top: 0.5rem;
+}
+.officer-card p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin: 0.75rem 0 0;
+  line-height: 1.7;
+}
+.officer-card.is-vacant .officer-name { color: var(--text-muted); }
+
+.office-summary {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--gold);
+  padding: 1.3rem 1.6rem;
+  margin: 2rem 0 0;
+}
+.office-summary dl { display: grid; grid-template-columns: auto 1fr; gap: 0.5rem 1.4rem; margin: 0; }
+.office-summary dt {
+  font-family: 'Cinzel', serif;
+  font-size: 0.56rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding-top: 0.28rem;
+}
+.office-summary dd { margin: 0; font-size: 0.95rem; color: var(--text); }
+@media (max-width: 520px) {
+  .office-summary dl { grid-template-columns: 1fr; gap: 0.15rem; }
+  .office-summary dd { margin-bottom: 0.7rem; }
+  .officer-card { flex-direction: column; }
+}
+
+/* ── Artwork figures ────────────────── */
+.art-figure {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+@media (max-width: 480px) { .art-figure { max-width: 190px; } }
+.art-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+.art-figure figcaption {
+  text-align: center;
+  margin-top: 0.85rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.art-figure .credit {
+  display: block;
+  margin-top: 0.45rem;
+  font-family: 'Cinzel', serif;
+  font-style: normal;
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
 /* ── Footer ──────────────────────────────────────────── */
 footer {
   background: var(--bg-card);
