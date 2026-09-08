@@ -1075,3 +1075,55 @@ footer p { color: var(--text-dim); font-size: 0.85rem; margin: 0; }
   .welcome-box { padding: 2rem 1.5rem; }
   .hero { min-height: auto; padding: 4rem 1.2rem 5rem; }
 }
+
+/* ── Light theme (inverted) ──────────────────────────── */
+/* Applied per-page via <body class="theme-light">. Every rule in this
+   stylesheet reads its colours from the tokens below, so redefining them
+   inverts the whole page: dark grounds become light, light type becomes
+   dark. Same hues throughout — only the lightness is flipped. */
+body.theme-light {
+  color-scheme: light;
+
+  /* Grounds: darkest → lightest */
+  --bg:          #F5F8FD;
+  --bg-card:     #E7EEF9;
+  --bg-section:  #EDF3FB;
+  --bg-hover:    #D8E3F4;
+
+  /* Blues: --blue holds its mid-tone (button ground in both themes),
+     --blue-bright and --blue-dim swap ends of the scale. */
+  --blue:        #3B5FA0;
+  --blue-bright: #24447F;
+  --blue-dim:    #A9C0E0;
+
+  /* Gold darkens so it stays legible on a light ground. */
+  --gold:        #8A6714;
+  --gold-dim:    #A98A2E;
+
+  /* --white is the maximum-contrast type colour, so it becomes the
+     darkest navy. Body text and its muted/dim steps invert with it. */
+  --white:       #0B1420;
+  --text:        #1E2E47;
+  --text-muted:  #4A6088;
+  --text-dim:    #7A8CAB;
+
+  --border:        #C7D5E9;
+  --border-bright: #9DB4D4;
+}
+
+/* Hard-coded colours that tokens cannot reach. */
+body.theme-light nav { background: rgba(245,248,253,0.95); }
+
+/* .btn paints var(--white) on var(--blue); with --white inverted to navy
+   that would put dark type on a mid-blue ground, so pin it back to white. */
+body.theme-light .btn { color: #FFFFFF; }
+body.theme-light .btn-gold { color: var(--bg); }
+body.theme-light .btn-gold:hover { background: #6E5210; border-color: #6E5210; color: var(--bg); }
+body.theme-light .btn-outline { color: var(--text); }
+body.theme-light .btn-outline:hover { color: var(--white); }
+
+/* Shadows lighten so they read as depth rather than smudges. */
+body.theme-light .pillar-card:hover { box-shadow: 0 12px 40px rgba(30,58,110,0.14); }
+body.theme-light .nav-menu { box-shadow: 0 14px 40px rgba(30,58,110,0.18); }
+body.theme-light .btn:hover { box-shadow: 0 4px 24px rgba(59,95,160,0.28); }
+body.theme-light .btn-gold:hover { box-shadow: 0 4px 24px rgba(138,103,20,0.3); }
