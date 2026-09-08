@@ -1085,40 +1085,40 @@ body.theme-light {
   color-scheme: light;
 
   /* Grounds: darkest → lightest */
-  --bg:          #E6EDF7;
-  --bg-card:     #D9E3F2;
-  --bg-section:  #E0E9F5;
-  --bg-hover:    #C9D8EE;
+  --bg:          #A9BEDA;
+  --bg-card:     #9AB2D3;
+  --bg-section:  #A2B8D7;
+  --bg-hover:    #8AA5C9;
 
   /* Blues: --blue holds its mid-tone (button ground in both themes),
      --blue-bright and --blue-dim swap ends of the scale. */
   --blue:        #3B5FA0;
-  --blue-bright: #24447F;
-  --blue-dim:    #A9C0E0;
+  --blue-bright: #1F3C72;
+  --blue-dim:    #7A93BC;
 
   /* Gold darkens so it stays legible on a light ground. */
-  --gold:        #8A6714;
-  --gold-dim:    #A98A2E;
+  --gold:        #63490B;
+  --gold-dim:    #7E6318;
 
   /* --white is the maximum-contrast type colour, so it becomes the
      darkest navy. Body text and its muted/dim steps invert with it. */
   --white:       #0B1420;
   --text:        #1E2E47;
-  --text-muted:  #4A6088;
-  --text-dim:    #6E82A4;
+  --text-muted:  #2E3F63;
+  --text-dim:    #405375;
 
-  --border:        #B9CAE3;
-  --border-bright: #93ACD0;
+  --border:        #7B97C0;
+  --border-bright: #5D7DAB;
 }
 
 /* Hard-coded colours that tokens cannot reach. */
-body.theme-light nav { background: rgba(230,237,247,0.95); }
+body.theme-light nav { background: rgba(169,190,218,0.95); }
 
 /* .btn paints var(--white) on var(--blue); with --white inverted to navy
    that would put dark type on a mid-blue ground, so pin it back to white. */
 body.theme-light .btn { color: #FFFFFF; }
-body.theme-light .btn-gold { color: var(--bg); }
-body.theme-light .btn-gold:hover { background: #6E5210; border-color: #6E5210; color: var(--bg); }
+body.theme-light .btn-gold { color: #F5F8FD; }
+body.theme-light .btn-gold:hover { background: #4E390A; border-color: #4E390A; color: #F5F8FD; }
 body.theme-light .btn-outline { color: var(--text); }
 body.theme-light .btn-outline:hover { color: var(--white); }
 
@@ -1126,4 +1126,4 @@ body.theme-light .btn-outline:hover { color: var(--white); }
 body.theme-light .pillar-card:hover { box-shadow: 0 12px 40px rgba(30,58,110,0.14); }
 body.theme-light .nav-menu { box-shadow: 0 14px 40px rgba(30,58,110,0.18); }
 body.theme-light .btn:hover { box-shadow: 0 4px 24px rgba(59,95,160,0.28); }
-body.theme-light .btn-gold:hover { box-shadow: 0 4px 24px rgba(138,103,20,0.3); }
+body.theme-light .btn-gold:hover { box-shadow: 0 4px 24px rgba(99,73,11,0.32); }
