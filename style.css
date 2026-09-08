@@ -1085,10 +1085,10 @@ body.theme-light {
   color-scheme: light;
 
   /* Grounds: darkest → lightest */
-  --bg:          #F5F8FD;
-  --bg-card:     #E7EEF9;
-  --bg-section:  #EDF3FB;
-  --bg-hover:    #D8E3F4;
+  --bg:          #E6EDF7;
+  --bg-card:     #D9E3F2;
+  --bg-section:  #E0E9F5;
+  --bg-hover:    #C9D8EE;
 
   /* Blues: --blue holds its mid-tone (button ground in both themes),
      --blue-bright and --blue-dim swap ends of the scale. */
@@ -1105,14 +1105,14 @@ body.theme-light {
   --white:       #0B1420;
   --text:        #1E2E47;
   --text-muted:  #4A6088;
-  --text-dim:    #7A8CAB;
+  --text-dim:    #6E82A4;
 
-  --border:        #C7D5E9;
-  --border-bright: #9DB4D4;
+  --border:        #B9CAE3;
+  --border-bright: #93ACD0;
 }
 
 /* Hard-coded colours that tokens cannot reach. */
-body.theme-light nav { background: rgba(245,248,253,0.95); }
+body.theme-light nav { background: rgba(230,237,247,0.95); }
 
 /* .btn paints var(--white) on var(--blue); with --white inverted to navy
    that would put dark type on a mid-blue ground, so pin it back to white. */
