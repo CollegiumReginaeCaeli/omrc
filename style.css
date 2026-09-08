@@ -476,11 +476,18 @@ blockquote cite {
 /* ── Shop category previews ──────────────────────────── */
 .shop-categories {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* 280px so four cards form a 2x2 inside .section-inner.narrow (700px)
+     rather than wrapping 3-across and leaving a lone orphan on row two. */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.2rem;
   margin: 3rem 0;
   text-align: left;
 }
+/* Full-width panel within the grid, for a category that carries a list. */
+.shop-categories .is-panel { grid-column: 1 / -1; }
+.shop-categories .is-panel:hover { transform: none; border-color: var(--border); }
+.shop-categories .is-panel .territory-list { columns: 2; margin-top: 0.2rem; }
+@media (max-width: 480px) { .shop-categories .is-panel .territory-list { columns: 1; } }
 .category-preview {
   background: var(--bg-card);
   border: 1px solid var(--border);
